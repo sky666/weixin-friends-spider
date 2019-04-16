@@ -21,7 +21,7 @@ def friends_sex_analysis(friends):
     df_sex = pd.DataFrame(sex_count_order.values, index=['男', '女', '未设置'], columns=['Sex'])
     plt.pie(df_sex['Sex'], labels=df_sex.index, autopct='%.2f%%')  # 饼图
     plt.title('微信好友性别分析', fontsize=18)  # 设置标题
-    # plt.savefig('微信好友性别分析.jpg')  # 保存图片
+    plt.savefig('微信好友性别分析.jpg')  # 保存图片
     plt.show()
 
 
@@ -31,14 +31,14 @@ def friends_city_analysis(friends):
     province_count_order = province_count.sort_values(ascending=False)  # 降序排列
     plt.bar(province_count_order.index[:10], province_count_order.values[:10])  # 条形图,只查看前 10 个省份的好友分布
     plt.title('微信好友省份分布', fontsize=18)  # 设置标题
-    # plt.savefig('微信好友省份分布.jpg')  # 保存图片
+    plt.savefig('微信好友省份分布.jpg')  # 保存图片
     plt.show()
 
     city_count = friends.groupby('City')['City'].count()  # 统计各市的好友数量
     city_count_order = city_count.sort_values(ascending=False)  # 降序排列
     plt.bar(city_count_order.index[:10], city_count_order.values[:10])  # 条形图,只查看前 10 个市的好友分布
     plt.title('微信好友市区分布', fontsize=18)  # 设置标题
-    # plt.savefig('微信好友市区分布.jpg')  # 保存图片
+    plt.savefig('微信好友市区分布.jpg')  # 保存图片
     plt.show()
 
 
